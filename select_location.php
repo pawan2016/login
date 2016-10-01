@@ -34,14 +34,19 @@
 				
 					$locationLists = array_merge($transfer_to,$locationLists);
 				}
-				// echo "<pre>";
-				// print_r($locationLists); die;
+				
+				
+			//	print_r($locationLists);
+				
 				?>
 					<div class="input-group input-group-lg">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
                         <div class="controls">
+						<?php 
+						//print_r($locationLists);?>
 							<select id="office_id" class="form-control" name="office_id" style="height: 54px;">
 							<?php $i=1; foreach($locationLists as $location) { 
+							
 							if( strtotime($location->access_rights_from) <= strtotime(date('Y-m-d',strtotime('now'))) && ($location->access_rights_to == '' || $location->access_rights_to == '0000-00-00' || strtotime($location->access_rights_to) >= strtotime(date('Y-m-d',strtotime('now')))))
 							{
 							$office_id=$location->office_id;
